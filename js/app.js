@@ -8,7 +8,7 @@ $(function(){
           opacity: 1
       }, 1000, function(){
            $(".welcome-fading").each(function(index) {
-               $(this).delay(2600*index).fadeIn(2000);
+               $(this).delay(1*index).fadeIn(2000);
                $(this).siblings().find('.blinking').remove();
             });
             
@@ -42,9 +42,14 @@ $(function(){
     });
     
     
-    $('.story-beginning').on('click', function(){
+    $('.story-beginning').on('click', function(e){
+        e.preventDefault();
         $('.thestory').slideUp(500);
-        $('#henryk-ch-1').slideDown(1000);
+       if ($('.story-beginning').attr('href') == '#janina-ch-1') {
+            $('.chapter-1-j').slideDown(1000)
+        } else {
+            $('.chapter-1-h').slideDown(1000)
+        }
     });
     
     
